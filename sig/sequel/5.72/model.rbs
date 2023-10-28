@@ -16,6 +16,8 @@ module Sequel
 
     def self.def_column_alias: (Symbol, Symbol) -> void
 
+    def self.def_Model: (Module) -> void
+
     def self.find: (*untyped) ?{ -> void } -> instance?
     
     def self.find_or_create: (**untyped) ?{ (instance) -> void } -> instance
