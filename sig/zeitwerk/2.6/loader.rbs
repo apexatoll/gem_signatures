@@ -8,6 +8,8 @@ module Zeitwerk
 
     def push_dir: (String dir, ?namespace: Module) -> void
 
+    def eager_load_namespace: (Module) -> void
+
     def setup: -> void
   end
 end
