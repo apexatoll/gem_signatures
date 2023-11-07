@@ -1,0 +1,269 @@
+module Curses
+  VERSION: String
+  TYPE_ALPHA: Integer
+  TYPE_ALNUM: Integer
+  TYPE_ENUM: Integer
+  TYPE_INTEGER: Integer
+  TYPE_NUMERIC: Integer
+  TYPE_REGEXP: Integer
+
+  A_ATTRIBUTES: Integer
+  A_BOLD: Integer
+  A_CHARTEXT: Integer
+  A_COLOR: Integer
+  A_STANDOUT: Integer
+
+  # Add a character ch, with attributes, then advance the cursor.
+  def self.addch: (String) -> void
+
+  # Add a string of characters str, to the window and advance cursor.
+  def self.addstr: (String) -> void
+
+  # Tells which colors to paint for color pair 0.
+  def self.assume_default_colors: (Integer fg, Integer bg) -> void
+
+  # Turns off the named attributes attrs without affecting any others.
+  def self.attroff: (*Integer) -> void
+
+  # Turns on the named attributes attrs without turning any other attributes on
+  # or off.
+  def self.attron: (*Integer) -> void
+
+  # Sets the current attributes of the given window to attrs.
+  def self.attrset: (*Integer) -> void
+
+  # Sounds an audible alarm on the terminal, if possible; otherwise it flashes
+  # the screen (visual bell).
+  def self.beep: -> void
+
+  # Window background manipulation routines.
+  def self.bkgd: (Integer) -> void
+
+  # Manipulate the background of the named window with character Integer ch.
+  def self.bkgdset: (Integer) -> void
+
+  # Returns true or false depending on whether the terminal can change color
+  # attributes.
+  def self.can_change_color?: -> bool
+
+  # Put the terminal into cbreak mode.
+  def self.cbreak: -> void
+
+  # Clears every position on the screen completely, so that a subsequent call
+  # by Curses.refresh for the screen/window will be repainted from scratch.
+  def self.clear: -> void
+
+  # A program should always call Curses.close_screen before exiting or escaping
+  # from curses mode temporarily.
+  def self.close_screen: -> void
+
+  # Returns true if the window/screen has been closed, without any subsequent
+  # Curses.refresh calls, returns false otherwise.
+  def self.closed?: -> bool
+
+  # Clears to the end of line, that the cursor is currently on.
+  def self.clrtoeol: -> void
+
+  # Returns an 3 item Array of the RGB values in color.
+  def self.color_content: (Integer) -> Array[Integer]
+
+  # Sets the color pair attributes to attrs.
+  def self.color_pair: (Integer) -> Integer
+
+  # Returns the COLOR_PAIRS available, if the curses library supports it.
+  def self.color_pairs: -> Integer
+
+  # Returns COLORS.
+  def self.colors: -> Integer
+
+  # Returns the number of columns on the screen.
+  def self.cols: -> Integer
+
+  # Put the terminal into cbreak mode.
+  def self.crmode: -> void
+
+  # Sets Cursor Visibility.
+  def self.curs_set: (Integer) -> void
+
+  # Save the current terminal modes as the “program” state for use by the
+  # Curses.reset_prog_mode.
+  def self.def_prog_mode: -> void
+
+  # Delete the character under the cursor.
+  def self.delch: -> void
+
+  # Delete the line under the cursor.
+  def self.deleteln: -> void
+
+  # Refreshes the windows and lines.
+  def self.doupdate: -> void
+
+  # Enables characters typed by the user to be echoed by Curses.getch as they
+  # are typed.
+  def self.echo: -> void
+
+  # Erase the screen.
+  def self.erase: -> void
+
+  # Returns the total time, in milliseconds, for which curses will await a
+  # character sequence, e.g., a function key.
+  def self.ESCDELAY: -> Integer
+
+  # Sets the ESCDELAY to Integer value.
+  def self.ESCDELAY=: (Integer) -> void
+
+  # Flashes the screen, for visual alarm on the terminal, if possible;
+  # otherwise it sounds the alert.
+  def self.flash: -> void
+
+  # The flushinp routine throws away any typeahead that has been typed by the
+  # user and has not yet been read by the program.
+  def self.flushinp: -> void
+
+  # Read and returns a character or function key from the window.
+  def self.get_char: -> String
+
+  # :nodoc
+  def self.get_key_modifiers: -> void
+
+  # Read and returns a character from the window.
+  def self.getch: -> String
+
+  # Returns coordinates of the mouse.
+  def self.getmouse: -> Integer
+
+  # This is equivalent to a series of Curses::Window.getch calls.
+  def self.getstr: -> String
+
+  # Returns true or false depending on whether the terminal has color
+  # capabilities.
+  def self.has_colors?: -> bool
+
+  # Returns the character at the current position.
+  def self.inch: -> String
+
+  # Changes the definition of a color.
+  def self.init_color: (Integer color, Integer r, Integer g, Integer b) -> void
+
+  # Changes the definition of a color-pair.
+  def self.init_pair: (Integer pair, Integer fg, Integer bg) -> void
+
+  # Initialize a standard screen.
+  def self.init_screen: -> void
+
+  # Insert a character ch, before the cursor.
+  def self.insch: (Integer) -> void
+
+  # Inserts a line above the cursor, and the bottom line is lost.
+  def self.insertln: -> void
+
+  # Returns the encoding for keyboard input.
+  def self.keyboard_encoding: -> Encoding
+
+  # Sets the encoding for keyboard input.
+  def self.keyboard_encoding=: (Encoding) -> void
+
+  # Returns the character string corresponding to key c.
+  def self.keyname: (Integer) -> String
+
+  # Returns the number of lines on the screen.
+  def self.lines: -> Integer
+
+  # The Curses.mouseinterval function sets the maximum time (in thousands of a
+  # second) that can elapse between press and release events for them to be
+  # recognized as a click.
+  def self.mouseinterval: (Integer) -> void
+
+  # Returns the mask of the reportable events.
+  def self.mousemask: (Integer) -> Integer
+
+  # Enable the underlying display device to translate the return key into
+  # newline on input, and whether it translates newline into return and
+  # line-feed on output (in either case, the call Curses.addch(‘n’) does the
+  # equivalent of return and line feed on the virtual screen).
+  def self.nl: -> void
+
+  # Put the terminal into normal mode (out of cbreak mode).
+  def self.nocbreak: -> void
+
+  # Put the terminal into normal mode (out of cbreak mode).
+  def self.nocrmode: -> void
+
+  # Disables characters typed by the user to be echoed by Curses.getch as they
+  # are typed.
+  def self.noecho: -> void
+
+  # Disable the underlying display device to translate the return key into
+  # newline on input.
+  def self.nonl: -> void
+
+  # Put the terminal out of raw mode.
+  def self.noraw: -> void
+
+  # Returns a 2 item Array, with the foreground and background color, in pair.
+  def self.pair_content: (Integer pair) -> [Integer, Integer]
+
+  # Returns the Fixnum color pair number of attributes attrs.
+  def self.pair_number: (*Integer) -> Integer
+
+  # Put the terminal into raw mode.
+  def self.raw: -> void
+
+  # Refreshes the windows and lines.
+  def self.refresh: -> void
+
+  # Reset the current terminal modes to the saved state by the
+  # Curses.def_prog_mode.
+  def self.reset_prog_mode: -> void
+
+  # Resize the current term to Fixnum lines and Fixnum cols.
+  def self.resizeterm: (Integer lines, Integer cols) -> void
+
+  # Scrolls the current window Fixnum num lines.
+  def self.scrl: (Integer) -> void
+
+  # A setter for the position of the cursor, using coordinates x and y.
+  def self.setpos: (Integer y, Integer x) -> void
+
+  # Enables the Normal display (no highlight).
+  def self.standend: -> void
+
+  # Enables the best highlighting mode of the terminal.
+  def self.standout: -> void
+
+  # Initializes the color attributes, for terminals that support it.
+  def self.start_color: -> void
+
+  # Initialize a standard screen.
+  def self.stdscr: -> Window
+
+  # Returns the number of positions in a tab.
+  def self.TABSIZE: -> Integer
+
+  # Sets the TABSIZE to Integer value.
+  def self.TABSIZE=: (Integer) -> void
+
+  # Returns the encoding for terminal output.
+  def self.terminal_encoding: -> Encoding
+
+  # Sets the encoding for terminal output.
+  def self.terminal_encoding=: (Encoding) -> void
+
+  # Sets block and non-blocking reads for the window.
+  def self.timeout=: (Integer) -> void
+
+  # Places ch back onto the input queue to be returned by the next call to
+  # Curses.get_char etc.
+  def self.unget_char: (Integer) -> void
+
+  # Places ch back onto the input queue to be returned by the next call to
+  # Curses.getch.
+  def self.ungetch: (Integer) -> void
+
+  # It pushes a KEY_MOUSE event onto the input queue, and associates with that
+  # event the given state data and screen-relative character-cell coordinates.
+  def self.ungetmouse: (Integer) -> void
+
+  # Tells the curses library to use terminal’s default colors.
+  def self.use_default_colors: -> void
+end

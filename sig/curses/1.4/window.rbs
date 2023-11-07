@@ -1,0 +1,195 @@
+module Curses
+  class Window
+    # Append string to window at cursor's current position.
+    def <<: (String) -> void
+
+    # Add a character ch, with attributes, to the window, then advance the
+    # cursor.
+    def addch: (String) -> void
+
+    # add a string of characters str, to the window and advance cursor.
+    def addstr: (String) -> void
+
+    # Turns off the named attributes attrs without affecting any others.
+    def attroff: (*Integer) -> void
+
+    # Turns on the named attributes attrs without turning any other attributes
+    # on or off.
+    def attron: (*Integer) -> void
+
+    # Sets the current attributes of the given window to attrs.
+    def attrset: (*Integer) -> void
+
+    # A getter for the beginning column (X coord) of the window.
+    def begx: -> Integer
+
+    # A getter for the beginning line (Y coord) of the window.
+    def begy: -> Integer
+
+    # Set the background of the current window and apply character Integer ch
+    # to every character.
+    def bkgd: (Integer) -> void
+
+    # Manipulate the background of the current window with character Integer ch.
+    def bkgdset: (Integer) -> void
+
+    # Set the characters to frame the window in.
+    def box: (?String? vertical, ?String? horizontal, ?String? corner) -> void
+
+    # Clear the window.
+    def clear: -> void
+
+    # Deletes the window, and frees the memory.
+    def close: -> void
+
+    # Clear the window to the end of line, that the cursor is currently on.
+    def clrtoeol: -> void
+
+    # Sets the current color of the given window to the foreground/background
+    # combination described by the Fixnum col.
+    def color_set: (Integer) -> void
+
+    # A getter for the current column (X coord) of the window.
+    def curx: -> Integer
+
+    # A getter for the current line (Y coord) of the window.
+    def cury: -> Integer
+
+    # Delete the character under the cursor.
+    def delch: -> void
+
+    # Delete the line under the cursor.
+    def deleteln: -> void
+
+    # Construct a new subwindow with constraints of height lines, width
+    # columns, begin at top line, and begin left most column relative to the
+    # parent window.
+    def derwin: (
+      Integer height,
+      Integer width,
+      Integer relative_top,
+      Integer relative_left
+    ) -> Window
+
+    # Erase the window.
+    def erase: -> void
+
+    # Read and returns a character or function key from the window.
+    def get_char: -> String
+
+    # Returns an Integer (ch) for the character property in the current window.
+    def getbkgd: -> Integer
+
+    # Read and returns a character from the window.
+    def getch: -> String
+
+    # This is equivalent to a series of Curses::Window.getch calls.
+    def getstr: -> String
+
+    # If bool is true curses considers using the hardware insert/delete line
+    # feature of terminals so equipped.
+    def idlok: (bool) -> void
+
+    # Returns the character at the current position of the window.
+    def inch: -> String
+
+    # Construct a new Curses::Window with constraints of height lines, width
+    # columns, begin at top line, and begin left most column.
+    def initialize: (
+      Integer height,
+      Integer width,
+      Integer top,
+      Integer left
+    ) -> void
+
+    # Insert a character ch, before the cursor, in the current window.
+    def insch: (String) -> void
+
+    # Inserts a line above the cursor, and the bottom line is lost.
+    def insertln: -> void
+
+    # Enables the keypad of the user’s terminal.
+    def keypad: (bool) -> void
+
+    # Return true if the specified line has been modified since the last call
+    # of refresh.
+    def line_touched?: (Integer) -> bool
+
+    # A getter for the maximum columns for the window.
+    def maxx: -> Integer
+
+    # A getter for the maximum lines for the window.
+    def maxy: -> Integer
+
+    # Moves the window so that the upper left-hand corner is at position (y, x).
+    def move: (Integer y, Integer x) -> void
+
+    # Moves the derived or subwindow inside its parent window.
+    def move_relative: (Integer x, Integer y) -> void
+
+    # When in no-delay mode Curses::Window#getch is a non-blocking call.
+    def nodelay=: (bool) -> void
+
+    # Refreshes the windows and lines.
+    def noutrefresh: -> void
+
+    # Redraws the entire window.
+    def redraw: -> void
+
+    # Refreshes the windows and lines.
+    def refresh: -> void
+
+    # Resize the current window to Fixnum lines and Fixnum cols.
+    def resize: (Integer lines, Integer cols) -> void
+
+    # Scrolls the current window Fixnum num lines.
+    def scrl: (Integer) -> void
+
+    # Scrolls the current window up one line.
+    def scroll: -> void
+
+    # Controls what happens when the cursor of a window is moved off the edge
+    # of the window or scrolling region, either as a result of a newline action
+    # on the bottom line, or typing the last character of the last line.
+    def scrollok: (bool) -> void
+
+    # A setter for the position of the cursor in the current window, using
+    # coordinates x and y.
+    def setpos: (Integer y, Integer x) -> void
+
+    # Set a software scrolling region in a window.
+    def setscrreg: (Integer top, Integer bottom) -> void
+
+    # Enables the Normal display (no highlight).
+    def standend: -> void
+
+    # Enables the best highlighting mode of the terminal.
+    def standout: -> void
+
+    # Construct a new subwindow with constraints of height lines, width
+    # columns, begin at top line, and begin left most column.
+    def subwin: (
+      Integer height,
+      Integer width,
+      Integer top,
+      Integer left
+    ) -> Window
+
+    # Sets block and non-blocking reads for the window.
+    def timeout=: (Integer) -> void
+
+    # Treat the window as if it has been modified since the last call of refresh.
+    def touch: -> void
+
+    # Make n lines from line y look as if they have (changed = true) or have
+    # not (changed = false) been modified since the last call of refresh.
+    def touch_line: (Integer y, Integer n, ?bool changed) -> void
+
+    # Return true if the window has been modified since the last call of refresh.
+    def touched?: -> bool
+
+    # Treat the window as if it has not been modified since the last call of
+    # refresh.
+    def untouch: -> void
+  end
+end
