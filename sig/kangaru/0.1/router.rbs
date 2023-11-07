@@ -1,0 +1,26 @@
+module Kangaru
+  class Router
+    extend Forwardable
+
+    attr_reader request: Request
+    attr_reader namespace: Module
+
+    def initialize: (Request, ?namespace: Module) -> void
+
+    def resolve: -> void
+
+    private
+
+    @controller_class: untyped
+
+    # Delegated to command
+    def controller_name: -> String
+    def action: -> Symbol
+
+    def controller_class: -> untyped
+
+    def validate_controller_defined!: -> void
+
+    def validate_action_defined!: -> void
+  end
+end

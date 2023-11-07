@@ -1,0 +1,7 @@
+module Kangaru
+  module Utilities
+    class Editor
+      def self.edit: (?String?) -> String?
+    end
+  end
+end

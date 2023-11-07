@@ -1,0 +1,23 @@
+module Kangaru
+  module Inflectors
+    module InflectorMacros
+      @input_filter: untyped
+      @token_transformer: untyped
+      @token_joiner: untyped
+      @group_joiner: untyped
+      @post_processor: untyped
+
+      def inherited: (Class) -> void
+
+      def filter_input_with: (Regexp) -> void
+
+      def transform_tokens_with: (?Symbol?) ?{ (String) -> String } -> void
+
+      def join_tokens_with: (String) -> void
+
+      def join_groups_with: (String) -> void
+
+      def post_process_with: (?Symbol?) ?{ (String) -> String } -> void
+    end
+  end
+end

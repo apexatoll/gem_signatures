@@ -1,0 +1,27 @@
+module Kangaru
+  VERSION: String
+
+  COLLAPSED_DIRS: Array[String]
+  DEFAULT_ENV: Symbol
+  INFLECTIONS: Hash[String, String]
+
+  extend ClassMethods
+
+  module ClassMethods
+    @loader: Zeitwerk::Loader
+
+    attr_accessor application: Application
+    attr_accessor env: Symbol
+
+    def env?: (Symbol) -> bool
+
+    def eager_load: (Module) -> void
+
+    def test?: -> bool
+  end
+
+  # Included in target applications that extend Kangaru::Initialiser.
+  interface _ApplicationMethods
+    include InjectedMethods::_InjectedMethods
+  end
+end

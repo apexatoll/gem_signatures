@@ -1,0 +1,33 @@
+module Kangaru
+  class Application
+    extend Forwardable
+
+    attr_reader paths: Paths
+    attr_reader namespace: Module
+    attr_reader config: Config
+    attr_reader database: Database?
+
+    def initialize: (source: String, namespace: Module) -> void
+
+    def configure: (?Symbol?) { (Config) -> void } -> void
+
+    def configured?: -> bool
+
+    def apply_config!: -> void
+
+    def run!: (*String) -> void
+
+    # Delegated to paths
+    def view_path: (*String, ?ext: Symbol?) -> Pathname
+
+    private
+
+    @configured: bool
+
+    def current_env?: (Symbol?) -> bool
+
+    attr_reader autoloader: Zeitwerk::Loader
+
+    def setup_database!: -> Database?
+  end
+end

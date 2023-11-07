@@ -1,0 +1,15 @@
+module Kangaru
+  module Concerns
+    module Configurable
+      extend Concern
+      extend ClassMethods
+
+      module ClassMethods
+        def configurator_name: -> String
+      end
+
+      def name: -> String
+      def config: [C < Configurators::Configurator] -> C
+    end
+  end
+end
