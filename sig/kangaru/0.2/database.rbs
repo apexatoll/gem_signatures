@@ -1,0 +1,31 @@
+module Kangaru
+  class Database
+    extend Forwardable
+
+    include Concerns::AttributesConcern
+    extend  Concerns::AttributesConcern::ClassMethods
+
+    PLUGINS: Array[Symbol]
+
+    attr_accessor adaptor: Symbol
+    attr_accessor path: String
+    attr_accessor migration_path: String
+
+    attr_reader handler: Sequel::Database
+
+    def setup!: -> void
+
+    def migrate!: -> void
+
+    # Delegated to handler
+    def rollback_on_exit: -> void
+    def tables: -> Array[Symbol]
+    def transaction: { -> void } -> void
+
+    private
+
+    def migrations_exist?: -> bool
+
+    def setup_sqlite!: -> Sequel::Database
+  end
+end

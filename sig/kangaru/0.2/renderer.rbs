@@ -1,0 +1,9 @@
+module Kangaru
+  class Renderer
+    attr_reader path: Pathname
+
+    def initialize: (Pathname) -> void
+
+    def render: (Binding) -> void
+  end
+end

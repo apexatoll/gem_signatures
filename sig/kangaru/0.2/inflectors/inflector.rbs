@@ -1,0 +1,47 @@
+module Kangaru
+  module Inflectors
+    class Inflector
+      type token_groups = Array[Array[String]]
+
+      extend InflectorMacros
+
+      DEFAULT_GROUP_JOINER: String
+
+      attr_reader string: String
+
+      def initialize: (String) -> void
+
+      def inflect: -> String
+
+      def self.inflect: (String) -> String
+
+      private
+
+      attr_reader tokeniser: Tokeniser
+
+      def class_attribute: (Symbol) -> untyped
+
+      def input_filter: -> untyped
+
+      def token_transformer: -> untyped
+
+      def token_joiner: -> untyped
+
+      def group_joiner: -> untyped
+
+      def post_processor: -> untyped
+
+      def filter_input: (String) -> String
+
+      def transform_and_join_tokens: (Array[Array[String]]) -> Array[String]
+
+      def transform_token: (String) -> String
+
+      def join_tokens: (Array[String]) -> String
+
+      def join_groups: (Array[String]) -> String
+
+      def post_process: (String) -> String
+    end
+  end
+end

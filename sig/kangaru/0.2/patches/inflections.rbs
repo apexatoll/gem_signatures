@@ -1,0 +1,15 @@
+module Kangaru
+  module Patches
+    module Inflections : String
+      class ::String
+        def to_class_name: -> String
+
+        def to_constant_name: -> String
+
+        def to_snakecase: -> String
+
+        def to_humanised: -> String
+      end
+    end
+  end
+end

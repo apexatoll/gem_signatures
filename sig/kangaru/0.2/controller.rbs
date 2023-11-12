@@ -1,0 +1,23 @@
+module Kangaru
+  class Controller
+    extend Forwardable
+
+    SUFFIX: String
+
+    attr_reader request: Request
+
+    def initialize: (Request) -> void
+
+    def execute: -> void
+
+    def self.path: -> String
+
+    def params: -> Hash[Symbol, untyped]
+    
+    private
+
+    def view_path: (String) -> Pathname
+
+    def renderer_for: (String) -> Renderer
+  end
+end

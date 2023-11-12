@@ -1,0 +1,11 @@
+module Kangaru
+  module Configurators
+    def self.classes: -> Array[singleton(Configurator)]
+
+    private
+
+    def self.application_configurators: -> Module?
+
+    def self.load_classes: (Module?) -> Array[singleton(Configurator)]
+  end
+end

@@ -1,0 +1,35 @@
+module Kangaru
+  class Paths
+    attr_reader source: Pathname
+    attr_reader dir: Pathname
+    attr_reader name: String
+
+    def initialize: (source: String) -> void
+
+    def gem_path: (*String, ?ext: Symbol?) -> Pathname
+
+    def lib_path: (*String, ?ext: Symbol?) -> Pathname
+
+    def path: (*String, ?ext: Symbol?) -> Pathname
+
+    def view_path: (*String, ?ext: Symbol?) -> Pathname
+
+    def collapsed_dirs: -> Array[String]
+
+    private
+
+    MODELS_DIRNAME: String
+    VIEWS_DIRNAME: String
+    CONTROLLERS_DIRNAME: String
+
+    attr_reader gem_dir: Pathname
+    attr_reader lib_dir: Pathname
+    attr_reader app_dir: Pathname
+
+    attr_reader models_dir: Pathname
+    attr_reader views_dir: Pathname
+    attr_reader controllers_dir: Pathname
+
+    def build_path: (*String, dir: Pathname, ext: Symbol?) -> Pathname
+  end
+end

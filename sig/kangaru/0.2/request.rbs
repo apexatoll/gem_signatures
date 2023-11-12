@@ -1,0 +1,24 @@
+module Kangaru
+  class Request
+    include Concerns::Configurable
+
+    DEFAULT_CONTROLLER: String
+
+    DEFAULT_ACTION: Symbol
+
+    attr_reader path: String
+    attr_reader params: Hash[Symbol, untyped]
+
+    def initialize: (path: String, params: Hash[Symbol, untyped]) -> void
+
+    def controller: -> String
+
+    def action: -> Symbol
+
+    private
+
+    attr_reader path_parser: PathParser
+
+    def default_controller: -> String
+  end
+end
