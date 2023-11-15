@@ -37,5 +37,15 @@ module Sequel
     def self.set_dataset: (untyped, **untyped) -> void
 
     def self.table_name: -> Symbol
+
+    def self.one_through_one: (Symbol, **untyped) -> void
+
+    def self.one_to_many: (Symbol, **untyped) -> void
+
+    def self.one_to_one: (Symbol, **untyped) -> void
+
+    def self.many_to_many: (Symbol, **untyped) -> void
+
+    def self.many_to_one: (Symbol, **untyped) -> void
   end
 end
