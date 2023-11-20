@@ -1,21 +1,19 @@
 module Kangaru
   module Validation
     class AttributeValidator
+      type validations = Hash[Symbol, rule]
+      type rule = bool | Hash[Symbol, untyped]
+
       attr_reader model: untyped
       attr_reader attribute: Symbol
 
       def initialize: (model: untyped, attribute: Symbol) -> void
 
-      def validate: (Symbol, **untyped) -> void
+      def validate!: (**untyped) -> void
 
       private
 
-      def validator_name: (Symbol) -> String
-
-      def load_validator: (
-        validator: Symbol,
-        params: Hash[Symbol, untyped]
-      ) -> Validators::Validator
+      def load_validator: (validator: Symbol, **untyped) -> Validator
     end
   end
 end

@@ -2,24 +2,20 @@ module Kangaru
   module Interface
     type env = Symbol?
 
-    module ClassMethods
-      def run!: (*String) -> void
+    def run!: (*String) -> void
 
-      def config: -> Config
+    def config: -> Config
 
-      def configure: (?env: env) { (Config) -> void } -> void
+    def configure: (?env: env) { (Config) -> void } -> void
 
-      def apply_config!: -> void
+    def apply_config!: -> void
 
-      def config_path: (String, ?env: env) -> void
+    def config_path: (String, ?env: env) -> void
 
-      def database: -> Database?
+    def database: -> Database?
 
-      private
+    private
 
-      def env_applies?: (Symbol?) -> bool
-    end
-
-    include ClassMethods
+    def env_applies?: (Symbol?) -> bool
   end
 end
