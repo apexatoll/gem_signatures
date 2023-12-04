@@ -47,5 +47,79 @@ module Sequel
     def self.many_to_many: (Symbol, **untyped) -> void
 
     def self.many_to_one: (Symbol, **untyped) -> void
+
+    def ==: (untyped) -> bool
+
+    def ===: (untyped) -> bool
+
+    def []: (Symbol) -> untyped
+
+    def []=: (Symbol, untyped)-> untyped
+
+    def autoincrementing_primary_key: -> Symbol
+
+    def cancel_action: (?String?) -> void
+
+    def changed_columns: -> Array[Symbol]
+
+    def delete: -> void
+
+    def destroy: -> void
+
+    def each: { (Symbol, untyped) -> void } -> void
+
+    def eql?: (untyped) -> bool
+
+    def exists?: -> bool
+
+    def extend: (Module) -> void
+
+    def freeze: -> void
+
+    def hash: -> Integer
+
+    def id: -> Integer
+
+    def inspect: -> String
+
+    def keys: -> Array[Symbol]
+
+    def lock!: (?Symbol) -> void
+
+    def marshallable!: -> untyped
+
+    def modified!: (?Symbol?) -> void
+
+    def modified?: (?Symbol?) -> bool
+
+    def new?: -> bool
+
+    def pk: -> Integer
+
+    def pk_hash: -> Hash[Symbol, Integer]
+
+    def qualified_pk_hash: -> Hash[untyped, untyped]
+
+    def refresh: -> untyped
+
+    def reload: -> untyped
+
+    def save: (**untyped) -> untyped
+
+    def save_changes: (**untyped) -> untyped
+
+    def set: (Hash[Symbol, untyped]) -> void
+
+    def skip_validation_on_next_save!: -> void
+
+    def this: -> untyped
+
+    def update: (**untyped) -> untyped
+
+    def valid?: -> bool
+
+    def validate: -> void
+
+    def values: -> Hash[Symbol, untyped]
   end
 end
