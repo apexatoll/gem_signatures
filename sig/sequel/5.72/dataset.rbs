@@ -117,8 +117,10 @@ module Sequel
     # def delete: (&block) -> untyped
     # def each: -> untyped
     # def empty?: -> untyped
-    # def first: (*args, &block) -> untyped
-    # def first!: (*args, &block) -> untyped
+    def first: (**untyped) -> untyped?
+             | (Integer) -> Dataset?
+    def first!: (**untyped) -> untyped
+              | (Integer) -> Dataset
     # def get: (column=(no_arg=true; nil), &block) -> untyped
     # def import: (columns, values, opts=OPTS) -> untyped
     # def insert: (*values, &block) -> untyped
