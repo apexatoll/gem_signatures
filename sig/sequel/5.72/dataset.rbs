@@ -1,0 +1,267 @@
+module Sequel
+  class Dataset
+    def self.register_extension: (Symbol, ?Module?) { -> void } -> Dataset
+
+    def clone: (**untyped) -> Dataset
+
+    def distinct: (*untyped) { -> void }-> Dataset
+
+    def except: (Dataset, **untyped) -> Dataset
+
+    def exclude: (**untyped) { -> void } -> Dataset
+
+    def exclude_having: (**untyped) { -> void } -> Dataset
+
+    def extension: (*Symbol) -> Dataset
+
+    def filter: (**untyped) { -> void } -> Dataset
+
+    def for_update: -> Dataset
+
+    def from: (*Symbol) { -> void } -> Dataset
+
+    def from_self: (**untyped) -> Dataset
+
+    def grep: (
+      Symbol | Array[Symbol],
+      String | Array[String],
+      **untyped
+    ) -> Dataset
+
+    def group: (*Symbol) { -> void } -> Dataset
+
+    def group_and_count: (*Symbol) { -> void } -> Dataset
+
+    def group_append: (*Symbol) { -> void } -> Dataset
+
+    alias group_by group
+
+    def group_cube: -> Dataset
+
+    def group_rollup: -> Dataset
+
+    def grouping_sets: -> Dataset
+
+    def having: (**untyped) { -> void } -> Dataset
+
+    def intersect: (Dataset, **untyped) -> Dataset
+
+    def invert: -> Dataset
+
+    def join: (*Symbol) { -> void } -> Dataset
+
+    def join_table: (Symbol, untyped, ?untyped, **untyped) { -> void } -> Dataset
+
+    def lateral: -> Dataset
+
+    def limit: (Integer?, ?Integer) -> Dataset
+
+    def lock_style: (String) -> Dataset
+
+    def merge_delete: { -> void } -> Dataset
+
+    def merge_insert: (**untyped) { -> void } -> Dataset
+
+    def merge_update: (**untyped) { -> void } -> Dataset
+
+    def merge_using: (Symbol, **untyped) -> Dataset
+
+    def naked: -> Dataset
+
+    def nowait: -> Dataset
+
+    # def offset: (o) -> untyped
+    # def or: (*cond, &block) -> untyped
+    # def order: (*columns, &block) -> untyped
+    # def order_append: (*columns, &block) -> untyped
+    # def order_by: (*columns, &block) -> untyped
+    # def order_more: (*columns, &block) -> untyped
+    # def order_prepend: (*columns, &block) -> untyped
+    # def qualify: (table=(cache=true; first_source)) -> untyped
+    # def returning: (*values) -> untyped
+    # def reverse: (*order, &block) -> untyped
+    # def reverse_order: (*order, &block) -> untyped
+    # def select: (*columns, &block) -> untyped
+    # def select_all: (*tables) -> untyped
+    # def select_append: (*columns, &block) -> untyped
+    # def select_group: (*columns, &block) -> untyped
+    # def select_more: (*columns, &block) -> untyped
+    # def server: (servr) -> untyped
+    # def server?: (server) -> untyped
+    # def skip_limit_check: -> untyped
+    # def skip_locked: -> untyped
+    # def unfiltered: -> untyped
+    # def ungrouped: -> untyped
+    # def union: (dataset, opts=OPTS) -> untyped
+    # def unlimited: -> untyped
+    # def unordered: -> untyped
+    # def where: (*cond, &block) -> untyped
+    # def window: (name, opts) -> untyped
+    # def with: (name, dataset, opts=OPTS) -> untyped
+    # def with_extend: (*mods, &block) -> untyped
+    # def with_recursive: (name, nonrecursive, recursive, opts=OPTS) -> untyped
+    # def with_row_proc: (callable) -> untyped
+    # def with_sql: (sql, *args) -> untyped
+    # def compound_clone: (type, dataset, opts) -> untyped
+    # def options_overlap: (opts) -> untyped
+    # def simple_select_all?: -> untyped
+
+    # def <<: (arg) -> untyped
+    # def []: (*conditions) -> untyped
+    # def all: (&block) -> untyped
+    # def as_hash: (key_column, value_column = nil, opts = OPTS) -> untyped
+    # def avg: (arg=(no_arg = true), &block) -> untyped
+    # def columns: -> untyped
+    # def columns!: -> untyped
+    # def count: (arg=(no_arg=true), &block) -> untyped
+    # def delete: (&block) -> untyped
+    # def each: -> untyped
+    # def empty?: -> untyped
+    # def first: (*args, &block) -> untyped
+    # def first!: (*args, &block) -> untyped
+    # def get: (column=(no_arg=true; nil), &block) -> untyped
+    # def import: (columns, values, opts=OPTS) -> untyped
+    # def insert: (*values, &block) -> untyped
+    # def last: (*args, &block) -> untyped
+    # def map: (column=nil, &block) -> untyped
+    # def max: (arg=(no_arg = true), &block) -> untyped
+    # def merge: -> untyped
+    # def min: (arg=(no_arg = true), &block) -> untyped
+    # def multi_insert: (hashes, opts=OPTS) -> untyped
+    # def paged_each: (opts=OPTS) -> untyped
+    # def select_hash: (key_column, value_column, opts = OPTS) -> untyped
+    # def select_hash_groups: (key_column, value_column, opts = OPTS) -> untyped
+    # def select_map: (column=nil, &block) -> untyped
+    # def select_order_map: (column=nil, &block) -> untyped
+    # def single_record: -> untyped
+    # def single_record!: -> untyped
+    # def single_value: -> untyped
+    # def single_value!: -> untyped
+    # def sum: (arg=(no_arg = true), &block) -> untyped
+    # def to_hash: (*a) -> untyped
+    # def to_hash_groups: (key_column, value_column = nil, opts = OPTS) -> untyped
+    # def truncate: -> untyped
+    # def update: (values=OPTS, &block) -> untyped
+    # def where_all: (cond, &block) -> untyped
+    # def where_each: (cond, &block) -> untyped
+    # def where_single_value: (cond) -> untyped
+    # def with_sql_all: (sql, &block) -> untyped
+    # def with_sql_delete: (sql) -> untyped
+    # def with_sql_each: (sql) -> untyped
+    # def with_sql_first: (sql) -> untyped
+    # def with_sql_insert: (sql) -> untyped
+    # def with_sql_single_value: (sql) -> untyped
+    # def _import: (columns, values, opts) -> untyped
+    # def _select_map_multiple: (ret_cols) -> untyped
+    # def _select_map_single: -> untyped
+    # def single_value_ds: -> untyped
+    # def exists: -> untyped
+    # def insert_sql: (*values) -> untyped
+    # def literal_append: (sql, v) -> untyped
+    # def merge_sql: -> untyped
+    # def multi_insert_sql: (columns, values) -> untyped
+    # def sql: -> untyped
+    # def truncate_sql: -> untyped
+    # def update_sql: (values = OPTS) -> untyped
+    # def provides_accurate_rows_matched?: -> untyped
+    # def quote_identifiers?: -> untyped
+    # def recursive_cte_requires_column_aliases?: -> untyped
+    # def requires_placeholder_type_specifiers?: -> untyped
+    # def requires_sql_standard_datetimes?: -> untyped
+    # def supports_cte?: (type=:select) -> untyped
+    # def supports_cte_in_subqueries?: -> untyped
+    # def supports_deleting_joins?: -> untyped
+    # def supports_derived_column_lists?: -> untyped
+    # def supports_distinct_on?: -> untyped
+    # def supports_group_cube?: -> untyped
+    # def supports_group_rollup?: -> untyped
+    # def supports_grouping_sets?: -> untyped
+    # def supports_insert_select?: -> untyped
+    # def supports_intersect_except?: -> untyped
+    # def supports_intersect_except_all?: -> untyped
+    # def supports_is_true?: -> untyped
+    # def supports_join_using?: -> untyped
+    # def supports_lateral_subqueries?: -> untyped
+    # def supports_limits_in_correlated_subqueries?: -> untyped
+    # def supports_merge?: -> untyped
+    # def supports_modifying_joins?: -> untyped
+    # def supports_multiple_column_in?: -> untyped
+    # def supports_nowait?: -> untyped
+    # def supports_offsets_in_correlated_subqueries?: -> untyped
+    # def supports_ordered_distinct_on?: -> untyped
+    # def supports_placeholder_literalizer?: -> untyped
+    # def supports_regexp?: -> untyped
+    # def supports_replace?: -> untyped
+    # def supports_returning?: (type) -> untyped
+    # def supports_select_all_and_column?: -> untyped
+    # def supports_skip_locked?: -> untyped
+    # def supports_timestamp_timezones?: -> untyped
+    # def supports_timestamp_usecs?: -> untyped
+    # def supports_updating_joins?: -> untyped
+    # def supports_where_true?: -> untyped
+    # def supports_window_clause?: -> untyped
+    # def supports_window_function_frame_option?: (option) -> untyped
+    # def supports_window_functions?: -> untyped
+    # def add_graph_aliases: (graph_aliases) -> untyped
+    # def graph: (dataset, join_conditions = nil, options = OPTS, &block) -> untyped
+    # def set_graph_aliases: (graph_aliases) -> untyped
+    # def ungraphed: -> untyped
+    # def new: (db) -> untyped
+    # def ==: (o) -> untyped
+    # def current_datetime: -> untyped
+    # def dup: -> untyped
+    # def each_server: -> untyped
+    # def eql?: (o) -> untyped
+    # def escape_like: (string) -> untyped
+    # def first_source: -> untyped
+    # def first_source_alias: -> untyped
+    # def first_source_table: -> untyped
+    # def freeze: -> untyped
+    # def hash: -> untyped
+    # def inspect: -> untyped
+    # def joined_dataset?: -> untyped
+    # def placeholder_literalizer_class: -> untyped
+    # def placeholder_literalizer_loader: (&block) -> untyped
+    # def row_number_column: -> untyped
+    # def row_proc: -> untyped
+    # def split_alias: (c) -> untyped
+    # def unqualified_column_for: (v) -> untyped
+    # def unused_table_alias: (table_alias, used_aliases = []) -> untyped
+    # def with_quote_identifiers: (v) -> untyped
+    # def _columns: -> untyped
+    # def cache_get: (k) -> untyped
+    # def cache_set: (k, v) -> untyped
+    # def clear_columns_cache: -> untyped
+    # def bind: (bind_vars=OPTS) -> untyped
+    # def call: (type, bind_variables=OPTS, *values, &block) -> untyped
+    # def prepare: (type, name, *values) -> untyped
+    # def to_prepared_statement: (type, values=nil, opts=OPTS) -> untyped
+    # def clause_methods: (type, clauses) -> untyped
+    # def def_sql_method: (mod, type, clauses) -> untyped
+    # def aliased_expression_sql_append: (sql, ae) -> untyped
+    # def array_sql_append: (sql, a) -> untyped
+    # def boolean_constant_sql_append: (sql, constant) -> untyped
+    # def case_expression_sql_append: (sql, ce) -> untyped
+    # def cast_sql_append: (sql, expr, type) -> untyped
+    # def column_all_sql_append: (sql, ca) -> untyped
+    # def complex_expression_sql_append: (sql, op, args) -> untyped
+    # def constant_sql_append: (sql, constant) -> untyped
+    # def delayed_evaluation_sql_append: (sql, delay) -> untyped
+    # def function_sql_append: (sql, f) -> untyped
+    # def join_clause_sql_append: (sql, jc) -> untyped
+    # def join_on_clause_sql_append: (sql, jc) -> untyped
+    # def join_using_clause_sql_append: (sql, jc) -> untyped
+    # def negative_boolean_constant_sql_append: (sql, constant) -> untyped
+    # def ordered_expression_sql_append: (sql, oe) -> untyped
+    # def placeholder_literal_string_sql_append: (sql, pls) -> untyped
+    # def qualified_identifier_sql_append: (sql, table, column=(c = table.column; table = table.table; c)) -> untyped
+    # def quote_identifier_append: (sql, name) -> untyped
+    # def quote_schema_table_append: (sql, table) -> untyped
+    # def quoted_identifier_append: (sql, name) -> untyped
+    # def schema_and_table: (table_name, sch=nil) -> untyped
+    # def split_qualifiers: (table_name, *args) -> untyped
+    # def subscript_sql_append: (sql, s) -> untyped
+    # def window_sql_append: (sql, opts) -> untyped
+    # def compound_from_self: -> untyped
+  end
+end
