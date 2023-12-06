@@ -20,7 +20,7 @@ module Sequel
 
     def self.exclude_having: (*Symbol) ?{ -> void } -> untyped
 
-    def self.first: (*Symbol) -> Dataset?
+    def self.first: (**untyped) -> instance?
                   | (Integer) -> Dataset?
 
     def self.first!: (**untyped) -> instance
