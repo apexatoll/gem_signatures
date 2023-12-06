@@ -1,24 +1,24 @@
 module Sequel
   class Dataset
-    def self.register_extension: (Symbol, ?Module?) { -> void } -> Dataset
+    def self.register_extension: (Symbol, ?Module?) ?{ -> void } -> Dataset
 
     def clone: (**untyped) -> Dataset
 
-    def distinct: (*untyped) { -> void }-> Dataset
+    def distinct: (*untyped) ?{ -> void }-> Dataset
 
     def except: (Dataset, **untyped) -> Dataset
 
-    def exclude: (**untyped) { -> void } -> Dataset
+    def exclude: (**untyped) ?{ -> void } -> Dataset
 
-    def exclude_having: (**untyped) { -> void } -> Dataset
+    def exclude_having: (**untyped) ?{ -> void } -> Dataset
 
     def extension: (*Symbol) -> Dataset
 
-    def filter: (**untyped) { -> void } -> Dataset
+    def filter: (**untyped) ?{ -> void } -> Dataset
 
     def for_update: -> Dataset
 
-    def from: (*Symbol) { -> void } -> Dataset
+    def from: (*Symbol) ?{ -> void } -> Dataset
 
     def from_self: (**untyped) -> Dataset
 
@@ -28,11 +28,11 @@ module Sequel
       **untyped
     ) -> Dataset
 
-    def group: (*Symbol) { -> void } -> Dataset
+    def group: (*Symbol) ?{ -> void } -> Dataset
 
-    def group_and_count: (*Symbol) { -> void } -> Dataset
+    def group_and_count: (*Symbol) ?{ -> void } -> Dataset
 
-    def group_append: (*Symbol) { -> void } -> Dataset
+    def group_append: (*Symbol) ?{ -> void } -> Dataset
 
     alias group_by group
 
@@ -42,15 +42,15 @@ module Sequel
 
     def grouping_sets: -> Dataset
 
-    def having: (**untyped) { -> void } -> Dataset
+    def having: (**untyped) ?{ -> void } -> Dataset
 
     def intersect: (Dataset, **untyped) -> Dataset
 
     def invert: -> Dataset
 
-    def join: (*Symbol) { -> void } -> Dataset
+    def join: (*Symbol) ?{ -> void } -> Dataset
 
-    def join_table: (Symbol, untyped, ?untyped, **untyped) { -> void } -> Dataset
+    def join_table: (Symbol, untyped, ?untyped, **untyped) ?{ -> void } -> Dataset
 
     def lateral: -> Dataset
 
@@ -58,11 +58,11 @@ module Sequel
 
     def lock_style: (String) -> Dataset
 
-    def merge_delete: { -> void } -> Dataset
+    def merge_delete: ?{ -> void } -> Dataset
 
-    def merge_insert: (**untyped) { -> void } -> Dataset
+    def merge_insert: (**untyped) ?{ -> void } -> Dataset
 
-    def merge_update: (**untyped) { -> void } -> Dataset
+    def merge_update: (**untyped) ?{ -> void } -> Dataset
 
     def merge_using: (Symbol, **untyped) -> Dataset
 

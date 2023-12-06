@@ -1,24 +1,24 @@
 module Sequel
   class Model
-    def self.all: { (Hash[Symbol, untyped]) -> void } -> Array[instance]
+    def self.all: ?{ (Hash[Symbol, untyped]) -> void } -> Array[instance]
 
     def self.as_hash: (*(Symbol | Array[Symbol]), **untyped) -> Hash[Symbol, untyped]
 
-    def self.avg: (Symbol) { -> void } -> untyped
+    def self.avg: (Symbol) ?{ -> void } -> untyped
 
     def self.count: (?Symbol) -> untyped
 
-    def self.distinct: (*Symbol) { -> void } -> untyped
+    def self.distinct: (*Symbol) ?{ -> void } -> untyped
 
-    def self.each: { (Hash[Symbol, untyped]) -> void } -> void
+    def self.each: ?{ (Hash[Symbol, untyped]) -> void } -> void
 
     def self.empty?: -> bool
 
     def self.except: (Dataset, **untyped) -> Dataset
 
-    def self.exclude: (**untyped) { -> void} -> Dataset
+    def self.exclude: (**untyped) ?{ -> void} -> Dataset
 
-    def self.exclude_having: (*Symbol) { -> void } -> untyped
+    def self.exclude_having: (*Symbol) ?{ -> void } -> untyped
 
     def self.first: (*Symbol) -> Dataset?
                   | (Integer) -> Dataset?
@@ -28,13 +28,13 @@ module Sequel
 
     def self.for_update: -> Dataset
 
-    def self.from: (*Symbol) { -> void } -> Dataset
+    def self.from: (*Symbol) ?{ -> void } -> Dataset
 
     def self.from_self: (**untyped) -> Dataset
 
-    def self.full_join: (*Symbol) { -> void } -> Dataset
+    def self.full_join: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.full_outer_join: (*Symbol) { -> void } -> Dataset
+    def self.full_outer_join: (*Symbol) ?{ -> void } -> Dataset
 
     def self.grep: (
       Symbol | Array[Symbol],
@@ -42,19 +42,19 @@ module Sequel
       **untyped
     ) -> Dataset
 
-    def self.group: (*Symbol) { -> void } -> Dataset
+    def self.group: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.group_and_count: (*Symbol) { -> void } -> Dataset
+    def self.group_and_count: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.group_append: (*Symbol) { -> void } -> Dataset
+    def self.group_append: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.group_by: (*Symbol) { -> void } -> Dataset
+    def self.group_by: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.having: (**untyped) { -> void } -> Dataset
+    def self.having: (**untyped) ?{ -> void } -> Dataset
 
     def self.import: -> untyped
 
-    def self.inner_join: (*Symbol) { -> void } -> Dataset
+    def self.inner_join: (*Symbol) ?{ -> void } -> Dataset
 
     def self.insert: -> untyped
 
@@ -62,18 +62,18 @@ module Sequel
 
     def self.invert: -> Dataset
 
-    def self.join: (*Symbol) { -> void } -> Dataset
+    def self.join: (*Symbol) ?{ -> void } -> Dataset
 
     def self.join_table: (
       Symbol, untyped, ?untyped, **untyped
-    ) { -> void } -> Dataset
+    ) ?{ -> void } -> Dataset
 
     def self.last: (*Symbol) -> Dataset?
                  | (Integer) -> Dataset?
 
-    def self.left_join: (*Symbol) { -> void } -> Dataset
+    def self.left_join: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.left_outer_join: (*Symbol) { -> void } -> Dataset
+    def self.left_outer_join: (*Symbol) ?{ -> void } -> Dataset
 
     def self.limit: (Integer?, ?Integer) -> Dataset
 
@@ -89,21 +89,21 @@ module Sequel
 
     def self.naked: -> Dataset
 
-    def self.natural_full_join: (*Symbol) { -> void } -> Dataset
+    def self.natural_full_join: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.natural_join: (*Symbol) { -> void } -> Dataset
+    def self.natural_join: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.natural_left_join: (*Symbol) { -> void } -> Dataset
+    def self.natural_left_join: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.natural_right_join: (*Symbol) { -> void } -> Dataset
+    def self.natural_right_join: (*Symbol) ?{ -> void } -> Dataset
 
     def self.offset: (Integer) -> Dataset
 
-    def self.order: (*Symbol) { -> void } -> untyped
+    def self.order: (*Symbol) ?{ -> void } -> untyped
 
-    def self.order_append: (*Symbol) { -> void } -> untyped
+    def self.order_append: (*Symbol) ?{ -> void } -> untyped
 
-    def self.order_by: (*Symbol) { -> void } -> untyped
+    def self.order_by: (*Symbol) ?{ -> void } -> untyped
 
     # def self.order_more: -> untyped
 
@@ -113,11 +113,11 @@ module Sequel
 
     # def self.qualify: -> untyped
 
-    def self.reverse: (Symbol) { -> void } -> Dataset
+    def self.reverse: (Symbol) ?{ -> void } -> Dataset
 
-    def self.right_join: (*Symbol) { -> void } -> Dataset
+    def self.right_join: (*Symbol) ?{ -> void } -> Dataset
 
-    def self.right_outer_join: (*Symbol) { -> void } -> Dataset
+    def self.right_outer_join: (*Symbol) ?{ -> void } -> Dataset
 
     # def self.select: -> untyped
 
@@ -167,7 +167,7 @@ module Sequel
 
     # def self.unordered: -> untyped
 
-    def self.where: (**untyped) { -> void } -> Dataset
+    def self.where: (**untyped) ?{ -> void } -> Dataset
 
     # def self.where_all: -> untyped
 
