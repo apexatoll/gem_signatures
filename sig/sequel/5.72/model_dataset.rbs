@@ -1,0 +1,184 @@
+module Sequel
+  class Model
+    def self.all: { (Hash[Symbol, untyped]) -> void } -> Array[instance]
+
+    def self.as_hash: (*(Symbol | Array[Symbol]), **untyped) -> Hash[Symbol, untyped]
+
+    def self.avg: (Symbol) { -> void } -> untyped
+
+    def self.count: (?Symbol) -> untyped
+
+    def self.distinct: (*Symbol) { -> void } -> untyped
+
+    def self.each: { (Hash[Symbol, untyped]) -> void } -> void
+
+    def self.empty?: -> bool
+
+    def self.except: (Dataset, **untyped) -> Dataset
+
+    def self.exclude: (**untyped) { -> void} -> Dataset
+
+    def self.exclude_having: (*Symbol) { -> void } -> untyped
+
+    def self.first: (*Symbol) -> Dataset?
+                  | (Integer) -> Dataset?
+
+    def self.first!: (**untyped) -> instance
+                   | (Integer) -> Dataset
+
+    def self.for_update: -> Dataset
+
+    def self.from: (*Symbol) { -> void } -> Dataset
+
+    def self.from_self: (**untyped) -> Dataset
+
+    def self.full_join: (*Symbol) { -> void } -> Dataset
+
+    def self.full_outer_join: (*Symbol) { -> void } -> Dataset
+
+    def self.grep: (
+      Symbol | Array[Symbol],
+      String | Array[String],
+      **untyped
+    ) -> Dataset
+
+    def self.group: (*Symbol) { -> void } -> Dataset
+
+    def self.group_and_count: (*Symbol) { -> void } -> Dataset
+
+    def self.group_append: (*Symbol) { -> void } -> Dataset
+
+    def self.group_by: (*Symbol) { -> void } -> Dataset
+
+    def self.having: (**untyped) { -> void } -> Dataset
+
+    def self.import: -> untyped
+
+    def self.inner_join: (*Symbol) { -> void } -> Dataset
+
+    def self.insert: -> untyped
+
+    def self.intersect: (Dataset, **untyped) -> Dataset
+
+    def self.invert: -> Dataset
+
+    def self.join: (*Symbol) { -> void } -> Dataset
+
+    def self.join_table: (
+      Symbol, untyped, ?untyped, **untyped
+    ) { -> void } -> Dataset
+
+    def self.last: (*Symbol) -> Dataset?
+                 | (Integer) -> Dataset?
+
+    def self.left_join: (*Symbol) { -> void } -> Dataset
+
+    def self.left_outer_join: (*Symbol) { -> void } -> Dataset
+
+    def self.limit: (Integer?, ?Integer) -> Dataset
+
+    # def self.lock_style: -> untyped
+
+    # def self.map: -> untyped
+
+    # def self.max: -> untyped
+
+    # def self.min: -> untyped
+
+    # def self.multi_insert: -> untyped
+
+    def self.naked: -> Dataset
+
+    def self.natural_full_join: (*Symbol) { -> void } -> Dataset
+
+    def self.natural_join: (*Symbol) { -> void } -> Dataset
+
+    def self.natural_left_join: (*Symbol) { -> void } -> Dataset
+
+    def self.natural_right_join: (*Symbol) { -> void } -> Dataset
+
+    def self.offset: (Integer) -> Dataset
+
+    def self.order: (*Symbol) { -> void } -> untyped
+
+    def self.order_append: (*Symbol) { -> void } -> untyped
+
+    def self.order_by: (*Symbol) { -> void } -> untyped
+
+    # def self.order_more: -> untyped
+
+    # def self.order_prepend: -> untyped
+
+    # def self.paged_each: -> untyped
+
+    # def self.qualify: -> untyped
+
+    def self.reverse: (Symbol) { -> void } -> Dataset
+
+    def self.right_join: (*Symbol) { -> void } -> Dataset
+
+    def self.right_outer_join: (*Symbol) { -> void } -> Dataset
+
+    # def self.select: -> untyped
+
+    # def self.select_all: -> untyped
+
+    # def self.select_append: -> untyped
+
+    # def self.select_group: -> untyped
+
+    # def self.select_hash: -> untyped
+
+    # def self.select_hash_groups: -> untyped
+
+    # def self.select_map: -> untyped
+
+    # def self.select_more: -> untyped
+
+    # def self.select_order_map: -> untyped
+
+    # def self.server: -> untyped
+
+    # def self.single_record: -> untyped
+
+    # def self.single_record!: -> untyped
+
+    # def self.single_value: -> untyped
+
+    # def self.single_value!: -> untyped
+
+    # def self.sum: -> untyped
+
+    # def self.to_hash: -> untyped
+
+    # def self.to_hash_groups: -> untyped
+
+    # def self.truncate: -> untyped
+
+    # def self.unfiltered: -> untyped
+
+    # def self.ungraphed: -> untyped
+
+    # def self.ungrouped: -> untyped
+
+    # def self.union: -> untyped
+
+    # def self.unlimited: -> untyped
+
+    # def self.unordered: -> untyped
+
+    def self.where: (**untyped) { -> void } -> Dataset
+
+    # def self.where_all: -> untyped
+
+    # def self.where_each: -> untyped
+
+    # def self.where_single_value: -> untyped
+
+    # def self.with: -> untyped
+
+    # def self.with_recursive: -> untyped
+
+    # def self.with_sql: -> untyped
+  end
+end
