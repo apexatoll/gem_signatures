@@ -48,7 +48,7 @@ module Sequel
 
     def invert: -> Dataset
 
-    def join: (*Symbol) ?{ -> void } -> Dataset
+    def join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     def join_table: (Symbol, untyped, ?untyped, **untyped) ?{ -> void } -> Dataset
 

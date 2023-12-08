@@ -32,9 +32,9 @@ module Sequel
 
     def self.from_self: (**untyped) -> Dataset
 
-    def self.full_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.full_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
-    def self.full_outer_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.full_outer_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     def self.grep: (
       Symbol | Array[Symbol],
@@ -54,7 +54,7 @@ module Sequel
 
     def self.import: -> untyped
 
-    def self.inner_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.inner_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     def self.insert: -> untyped
 
@@ -62,7 +62,7 @@ module Sequel
 
     def self.invert: -> Dataset
 
-    def self.join: (*Symbol) ?{ -> void } -> Dataset
+    def self.join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     def self.join_table: (
       Symbol, untyped, ?untyped, **untyped
@@ -71,9 +71,9 @@ module Sequel
     def self.last: (*Symbol) -> Dataset?
                  | (Integer) -> Dataset?
 
-    def self.left_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.left_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
-    def self.left_outer_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.left_outer_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     def self.limit: (Integer?, ?Integer) -> Dataset
 
@@ -89,13 +89,13 @@ module Sequel
 
     def self.naked: -> Dataset
 
-    def self.natural_full_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.natural_full_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
-    def self.natural_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.natural_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
-    def self.natural_left_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.natural_left_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
-    def self.natural_right_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.natural_right_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     def self.offset: (Integer) -> Dataset
 
@@ -115,9 +115,9 @@ module Sequel
 
     def self.reverse: (Symbol) ?{ -> void } -> Dataset
 
-    def self.right_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.right_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
-    def self.right_outer_join: (*Symbol) ?{ -> void } -> Dataset
+    def self.right_outer_join: (*Symbol, **untyped) ?{ -> void } -> Dataset
 
     # def self.select: -> untyped
 
