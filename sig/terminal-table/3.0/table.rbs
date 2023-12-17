@@ -1,0 +1,18 @@
+module Terminal
+  class Table
+    def initialize: (
+      ?title: String,
+      ?headings: Array[String],
+      ?rows: Array[Array[untyped]],
+      ?style: Hash[Symbol, untyped]
+    ) ?{ (Table) -> untyped } -> void
+
+    def render: -> String
+
+    alias to_s render
+
+    class Style
+      def self.defaults=: (Hash[Symbol, untyped]) -> void
+    end
+  end
+end
