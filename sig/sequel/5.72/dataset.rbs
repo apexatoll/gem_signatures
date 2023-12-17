@@ -72,7 +72,7 @@ module Sequel
 
     # def offset: (o) -> untyped
     # def or: (*cond, &block) -> untyped
-    # def order: (*columns, &block) -> untyped
+    def order: (*Symbol) ?{ -> void } -> Dataset
     # def order_append: (*columns, &block) -> untyped
     # def order_by: (*columns, &block) -> untyped
     # def order_more: (*columns, &block) -> untyped
@@ -95,7 +95,7 @@ module Sequel
     # def union: (dataset, opts=OPTS) -> untyped
     # def unlimited: -> untyped
     # def unordered: -> untyped
-    # def where: (*cond, &block) -> untyped
+    def where: (**untyped) ?{ -> void } -> Dataset
     # def window: (name, opts) -> untyped
     # def with: (name, dataset, opts=OPTS) -> untyped
     # def with_extend: (*mods, &block) -> untyped
@@ -140,6 +140,7 @@ module Sequel
     # def single_value: -> untyped
     # def single_value!: -> untyped
     # def sum: (arg=(no_arg = true), &block) -> untyped
+    def to_a: -> Array[untyped]
     # def to_hash: (*a) -> untyped
     # def to_hash_groups: (key_column, value_column = nil, opts = OPTS) -> untyped
     # def truncate: -> untyped
