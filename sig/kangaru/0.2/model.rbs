@@ -11,8 +11,7 @@ module Kangaru
     include Validatable
     extend  Validatable::ClassMethods
 
-    def self.enum: (
-      Symbol, Hash[Symbol, Integer], Hash[Symbol, untyped]
-    ) -> void
+    def self.enum: (Symbol, Hash[Symbol, Integer], Hash[Symbol, untyped]) -> void
+                 | (Symbol, **Integer) -> void
   end
 end
