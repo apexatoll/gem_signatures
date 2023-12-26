@@ -116,7 +116,8 @@ module Sequel
     # def count: (arg=(no_arg=true), &block) -> untyped
     # def delete: (&block) -> untyped
     # def each: -> untyped
-    # def empty?: -> untyped
+    def empty?: -> bool
+
     def first: (**untyped) -> untyped?
              | (Integer) -> Dataset?
     def first!: (**untyped) -> untyped
